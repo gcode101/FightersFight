@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'homes#index'
+  get 'comments/index'
 
-  get 'users/index'
+  root 'homes#index'
 
   resources :users
 
