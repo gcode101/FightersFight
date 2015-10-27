@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get 'comments/index'
-
-  root 'homes#index'
 
   resources :users
+  resources :comments
+
+  root 'homes#index'
+  get 'login' => 'homes#login'
+  get 'logout' => 'homes#logout'
+  get 'users/:id' => 'users#show'
+  
+  post 'login_attempt', to: 'homes#login_attempt', as: 'login_attempt'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

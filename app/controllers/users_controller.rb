@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
+	before_filter :save_login_state, :only => [:new, :create]
+
 
 	def index
 		@users = User.all
@@ -15,6 +17,10 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@current_user = User.find(params[:id])
+		unless @current_user
+			redirect_to users_path
+		end
 	end
 
 	def create
@@ -56,7 +62,7 @@ class UsersController < ApplicationController
     end
 
 	def user_params
-		params.require(:user).permit( :fullname, :description, :picture, :username, :password, :confirmation )
+		params.require(:user).permit( :fullname, :description, :picture, :username, :password, :email )
 	end
 
 

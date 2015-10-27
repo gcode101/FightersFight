@@ -1,2 +1,20 @@
 <h1>Home</h1>
 <%= link_to 'Sign up', new_user_path %>
+
+<div class="sign_form">
+	<h2>Log in</h2>
+	<%= form_tag('login_attempt') do %>
+	<p>
+		Username or Email:</br><%= text_field_tag(:username_or_email)%>
+	</p>
+	<p>
+		Password:</br><%= password_field_tag (:login_password) %>
+	</p>
+
+	<%= submit_tag("Log In")%>
+	<% end %>
+
+	<p id="theflash"> <%= notice %></p>
+
+	
+</div>
