@@ -1,0 +1,25 @@
+
+
+<h1>Listing Posts</h1>
+
+<table>
+  <tr>
+    <th>Recent Posts</th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <% user.posts.each do |post|%>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= link_to 'Show', user %></td>
+    </tr>
+    <tr>
+      <td><%= post.photo%></td>
+      <td><%= post.description%></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<%= link_to 'New Post', new_post_path %>
+

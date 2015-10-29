@@ -1,10 +1,27 @@
 <h3>My Profile</h3>
+
+<% if is_this_me?(@user) %>
+<%= link_to('Edit', edit_user_path(@user)) %> |
+<% end %>
+
+
+<%= link_to 'Back', users_path %>
+
+<p id="notice"> <%= notice %></p>
+
 <p><%= @user.fullname%></p>
 <p><%= image_tag @user.picture%></p>
 <p><%= @user.username%></p>
 <h4>About me:</h4>
 <p><%= @user.description%></p>
 
+<h3>Share it with the world</h3>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+  <h4>New Post</h4>
+  <%= render 'posts/form' %>
+
+
+
+
+

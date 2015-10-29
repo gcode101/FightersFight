@@ -5,8 +5,9 @@ class CreateUsers < ActiveRecord::Migration
       t.text :description
       t.string :picture
       t.string :username
-      t.string :password
-      t.string :confirmation
+      t.string :encrypted_password
+      t.string :salt
+      t.string :email
 
       t.timestamps null: false
     end
